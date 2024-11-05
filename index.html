@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+    <link rel="stylesheet" href="style.css" />
+    <title>BeautyShop</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BeautyShop</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">About One</a></li>
+                <li><a class="dropdown-item" href="#">About Two</a></li>
+                <li><a class="dropdown-item" href="#">About Three</a></li>
+                <li><a class="dropdown-item" href="#">About Four</a></li>
+                <li><a class="dropdown-item" href="#">About Five</a></li>
+                <li><a class="dropdown-item" href="#">About Six</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Search form -->
+          <form class="d-flex me-2" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search Anything Here..."
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+
+          <!-- Profile and Login -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-person"></i> Profile</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="loginDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-box-arrow-in-right"></i> Login / Sign Up
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Sign Up</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+   <!-- Main Banner Section -->
+    <section class="main-banner">
+      <div class="main-banner-content">
+        <h1>Your Beauty, Our Passion</h1>
+        <p class="lead">Pamper Yourself Today</p>
+        
+        <!-- Location Search Box -->
+        <div class="search-box">
+          <label for="location-search" class="form-label visually-hidden">Where do you want to go?</label>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="location-search"
+              placeholder="Enter your location"
+              aria-label="Location"
+            />
+            <button class="btn btn-primary" type="button">Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <div class="container my-5">
+      <h2 class="text-center">Our Services</h2>
+      <div class="d-flex justify-content-center flex-wrap">
+        <button
+          id="btn-hair-style"
+          class="service-btn btn btn-outline-primary"
+          onclick="showProviders('hair-style', this)"
+        >
+          Hair Style
+        </button>
+        <button
+          id="btn-waxing"
+          class="service-btn btn btn-outline-primary"
+          onclick="showProviders('waxing', this)"
+        >
+          Waxing
+        </button>
+        <button
+          id="btn-pedicure"
+          class="service-btn btn btn-outline-primary"
+          onclick="showProviders('pedicure', this)"
+        >
+          Pedicure
+        </button>
+        <button
+          id="btn-nails"
+          class="service-btn btn btn-outline-primary"
+          onclick="showProviders('nails', this)"
+        >
+          Nails
+        </button>
+      </div>
+    </div>
+
+    <!-- Service Providers Section -->
+    <div id="service-providers" class="container service-providers-section">
+      <h3 class="text-center">Service Providers Near You</h3>
+      <div class="mb-3">
+        <label for="providerSelect" class="form-label"
+          >Choose a Preferred Provider:</label
+        >
+        <select id="providerSelect" class="form-select">
+          <option value="" disabled selected>Select a provider</option>
+          <option value="Provider 1">Provider 1</option>
+          <option value="Provider 2">Provider 2</option>
+          <option value="Provider 3">Provider 3</option>
+        </select>
+      </div>
+
+      <!-- Provider List (Dynamic Content) -->
+      <div id="providersList" class="list-group">
+        <!-- Example Provider Item -->
+        <!-- These items will be dynamically displayed based on service selection -->
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Slogan Section -->
+    <section class="slogan-section">
+      <div class="container">
+        <h2>Our Commitment to You</h2>
+        <div class="row">
+          <!-- Happiness Card -->
+          <div class="col-md-4 mb-4">
+            <div class="slogan-card card">
+              <i class="bi bi-emoji-smile"></i>
+              <h4>Happiness</h4>
+              <p>We prioritize customer satisfaction and create moments of joy.</p>
+            </div>
+          </div>
+          <!-- Satisfaction Card -->
+          <div class="col-md-4 mb-4">
+            <div class="slogan-card card">
+              <i class="bi bi-award"></i>
+              <h4>Satisfaction</h4>
+              <p>Delivering high-quality services that exceed your expectations.</p>
+            </div>
+          </div>
+          <!-- Support Card -->
+          <div class="col-md-4 mb-4">
+            <div class="slogan-card card">
+              <i class="bi bi-headset"></i>
+              <h4>Support</h4>
+              <p>Dedicated support to ensure your needs are met around the clock.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    
+
+
+
+ <div class="container how-it-works">
+      <h2 class="mb-4">How It Works</h2>
+      <div class="row">
+        <!-- Steps Section -->
+        <div class="col-12">
+          <div class="d-flex flex-wrap justify-content-center">
+            <!-- Step 1 -->
+            <div class="card step-card mb-4">
+              <div class="card-body">
+                <div class="step-icon"><i class="fas fa-search"></i></div>
+                <div class="step-number">Step 1</div>
+                <div class="step-title">Search</div>
+                <p class="step-description">
+                  Find your preferred service by browsing through our selection.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="card step-card mb-4">
+              <div class="card-body">
+                <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="step-number">Step 2</div>
+                <div class="step-title">Book</div>
+                <p class="step-description">
+                  Select a provider and schedule that fits your needs.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="card step-card mb-4">
+              <div class="card-body">
+                <div class="step-icon"><i class="fas fa-cut"></i></div>
+                <div class="step-number">Step 3</div>
+                <div class="step-title">Receive Service</div>
+                <p class="step-description">
+                  Enjoy top-notch salon care from our professionals.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="card step-card mb-4">
+              <div class="card-body">
+                <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+                <div class="step-number">Step 4</div>
+                <div class="step-title">Pay</div>
+                <p class="step-description">
+                  Complete payment securely after your service.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      // Service Providers Data
+      const providersData = {
+        "hair-style": [
+          {
+            name: "Glamorous Hair",
+            rating: 4.8,
+            description: "Expert in trendy hairstyles and cuts.",
+          },
+          {
+            name: "Shear Magic",
+            rating: 4.5,
+            description: "Affordable and professional stylists.",
+          },
+        ],
+        waxing: [
+          {
+            name: "Smooth Skin Spa",
+            rating: 4.9,
+            description: "Specializes in gentle and effective waxing.",
+          },
+          {
+            name: "Bare Beauty",
+            rating: 4.7,
+            description: "Experienced in quick, pain-free waxing.",
+          },
+        ],
+        pedicure: [
+          {
+            name: "Pampered Toes",
+            rating: 4.6,
+            description: "Luxurious pedicures with a variety of options.",
+          },
+          {
+            name: "Nail Bliss",
+            rating: 4.8,
+            description: "Relaxing pedicures with expert care.",
+          },
+        ],
+        nails: [
+          {
+            name: "Nail Artistry",
+            rating: 4.9,
+            description: "Beautiful and creative nail designs.",
+          },
+          {
+            name: "Polished Perfection",
+            rating: 4.5,
+            description: "Professional nail services for all styles.",
+          },
+        ],
+      };
+
+      // Function to display providers based on selected service
+      function showProviders(service, button) {
+        const providersList = document.getElementById("providersList");
+        providersList.innerHTML = ""; // Clear previous providers
+
+        providersData[service].forEach((provider) => {
+          const providerItem = document.createElement("div");
+          providerItem.className =
+            "list-group-item d-flex justify-content-between align-items-center";
+
+          providerItem.innerHTML = `
+        <div>
+          <h5 class="mb-1">${provider.name}</h5>
+          <p class="mb-1">Rating: ${provider.rating} ⭐</p>
+          <p class="mb-1">${provider.description}</p>
+        </div>
+        <button class="btn btn-primary">Book</button>
+      `;
+
+          providersList.appendChild(providerItem);
+        });
+
+        // Scroll to the service providers section
+        document.getElementById("service-providers").style.display = "block";
+        document
+          .getElementById("service-providers")
+          .scrollIntoView({ behavior: "smooth" });
+
+        // Manage active state
+        document
+          .querySelectorAll(".service-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+      }
+
+      // Load default service on page load
+      window.onload = function () {
+        const defaultButton = document.getElementById("btn-hair-style");
+        showProviders("hair-style", defaultButton); // Set 'hair-style' as default
+      };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

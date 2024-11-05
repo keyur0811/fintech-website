@@ -1,0 +1,228 @@
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+h2,
+h3 {
+  color: #6c63ff;
+}
+
+/* Main Banner Styling */
+.main-banner {
+  background-image: url("/salon.jpeg"); /* Replace with your photo URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.main-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.main-banner-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.main-banner h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.main-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.main-banner .search-box {
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.main-banner .input-group {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.main-banner .form-control {
+  border: none;
+  border-radius: 30px 0 0 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-banner .btn-primary {
+  background-color: #e91e63;
+  border-color: #e91e63;
+  border-radius: 0 30px 30px 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.main-banner .btn-primary:hover {
+  background-color: #d81b60;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .main-banner h1 {
+    font-size: 2.5rem;
+  }
+
+  .main-banner p {
+    font-size: 1.2rem;
+  }
+
+  .main-banner .btn-primary {
+    padding: 8px 16px;
+  }
+}
+
+/* Service buttons with styling for active and hover states */
+.service-btn {
+  margin: 8px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+.service-btn:hover,
+.service-btn.active {
+  background-color: #6c63ff;
+  color: #fff;
+}
+
+/* Styling the service providers section */
+.service-providers-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+.list-group-item {
+  border: 0;
+  background-color: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+  transition: background-color 0.2s;
+}
+.list-group-item:hover {
+  background-color: #f0f0f5;
+}
+.btn-primary {
+  background-color: #6c63ff;
+  border: none;
+  transition: background-color 0.3s;
+}
+.btn-primary:hover {
+  background-color: #5a54cc;
+}
+
+/* Custom CSS for Slogan Section */
+.slogan-section {
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.slogan-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+.slogan-card {
+  padding: 2rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.slogan-card:hover {
+  transform: scale(1.05);
+}
+.slogan-card i {
+  font-size: 3rem;
+  color: #0d6efd;
+  margin-bottom: 1rem;
+}
+.slogan-card h4 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.slogan-card p {
+  color: #6c757d;
+}
+
+.how-it-works {
+  padding: 2rem 0;
+  text-align: center;
+}
+.step-card {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 0.5rem; /* Margin to separate cards */
+  /* height: 300px; Fixed height */
+  width: 250px; /* Fixed width */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.step-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.step-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+.step-title {
+  font-size: 1.25rem;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+}
+.step-description {
+  color: #6c757d;
+  margin-top: 1rem;
+}
+.step-icon {
+  font-size: 3rem; /* Increased icon size for better visibility */
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .step-card {
+    width: 45%; /* Adjust for medium screens */
+  }
+}
+@media (max-width: 576px) {
+  .step-card {
+    width: 100%; /* Full width on small screens */
+  }
+}
